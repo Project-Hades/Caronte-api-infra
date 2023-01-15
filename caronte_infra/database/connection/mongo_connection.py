@@ -8,14 +8,7 @@ from pymongo.collection import Collection
 
 
 class MongoConnection(AsyncCommand[Collection]):
-    def __init__(
-        self,
-        user: str,
-        pwd: str,
-        host: str,
-        port: int,
-        db_name: str,
-    ) -> None:
+    def __init__(self, user: str, pwd: str, host: str, port: int, db_name: str) -> None:
         self.user = user
         self.pwd = pwd
         self.host = host
