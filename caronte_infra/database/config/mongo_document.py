@@ -1,10 +1,10 @@
 from __future__ import annotations
+
 from typing import Awaitable
 
+from caronte_common.data.db_document import Document
 from caronte_common.interfaces.command import AsyncCommand
 from pymongo.collection import Collection
-
-from caronte_infra.database.dto.document import Document
 
 
 class MongoConfigDocument(AsyncCommand[None]):
