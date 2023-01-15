@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "caronte-api-infra"
-version = "0.0.0"
+version = "0.1.0"
 description = "Infraestructure package to integrate services"
 authors = ["Giovani Liskoski Zanini <giovanilzanini@hotmail.com>"]
 license = "GNU"
