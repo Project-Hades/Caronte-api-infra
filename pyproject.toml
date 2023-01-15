@@ -10,8 +10,8 @@ packages = [{ include = "caronte_infra" }]
 [tool.poetry.dependencies]
 python = "^3.9"
 pydantic = "^1.10.4"
-caronte-api-common = "^0.1.2"
 motor = "^3.1.1"
+caronte-api-common = "^0.2.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
