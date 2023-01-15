@@ -14,20 +14,31 @@ class ConnectionFactory(
     AsyncFactory[AsyncCommand[Tr], Literal["redis", "mongo"]], Generic[Tr]
 ):
     def __init__(self, user: str, pwd: str, host: str, port: int, db_name: str) -> None:
-        self.redis = RedisConnection(
-            user=user, pwd=pwd, host=host, port=port, db_name=db_name
-        )
-        self.mongo = MongoConnection(
-            user=user, pwd=pwd, host=host, port=port, db_name=db_name
-        )
+        self.user = user
+        self.pwd = pwd
+        self.host = host
+        self.port = port
+        self.db_name = db_name
 
     async def manufacture(
         self, object_key: Literal["redis", "mongo"]
     ) -> Awaitable[AsyncCommand[Tr]]:
         if object_key == "redis":
-            return self.redis
+            return RedisConnection(
+                user=self.user,
+                pwd=self.pwd,
+                host=self.host,
+                port=self.port,
+                db_name=self.db_name,
+            )
         elif object_key == "mongo":
-            return self.mongo
+            return MongoConnection(
+                user=self.user,
+                pwd=self.pwd,
+                host=self.host,
+                port=self.port,
+                db_name=self.db_name,
+            )
         else:
             raise UndefinedDatabaseException(
                 error="Please use redis or mongo as database"
